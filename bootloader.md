@@ -26,7 +26,7 @@ Chroot into Your Installed System: Once you've mounted all the necessary directo
 Repair the Bootloader: After chrooting into your installed system, you can proceed to repair the bootloader using the appropriate commands for your bootloader. 
 GRUB: Reinstall GRUB to the boot sector using 
            
-    grub-install 
+    grub-install /dev/sdX  # Replace X with the drive containing the bootloader
     update-grub
 For Syslinux: 
 
