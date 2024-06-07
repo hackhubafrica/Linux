@@ -17,8 +17,8 @@ Disable the Microphone:
 
 Method 2: Blacklist the Microphone Driver
 
-    Identify the Microphone Driver:
-        Open a terminal and list the audio devices:
+Identify the Microphone Driver:
+Open a terminal and list the audio devices:
 
            arecord -l
 
@@ -31,39 +31,29 @@ Open the blacklist configuration file for editing:
 
 Add a line to blacklist the microphone driver (replace snd_driver_name with the actual driver name, e.g., snd_hda_intel):
 
-bash
-
     blacklist snd_driver_name
 
 Update the Initramfs:
 
-    Run the following command to update the initramfs:
-
-    bash
+Run the following command to update the initramfs:
 
     sudo update-initramfs -u
 
 Reboot the System:
 
-    Restart your computer for the changes to take effect:
+Restart your computer for the changes to take effect:
 
-    bash
-
-        sudo reboot
+    sudo reboot
 
 Method 3: Use ALSA to Disable the Microphone
 
-    Open Terminal: Launch a terminal window.
-    Edit the ALSA Configuration:
-        Open the ALSA configuration file for editing:
+Open Terminal: Launch a terminal window.
+Edit the ALSA Configuration:
+Open the ALSA configuration file for editing:
 
-        bash
-
-sudo nano /etc/asound.conf
+    sudo nano /etc/asound.conf
 
 Add the following lines to disable the microphone:
-
-plaintext
 
     pcm.!default {
         type hw
@@ -78,11 +68,9 @@ plaintext
 
 Reboot the System:
 
-    Restart your computer for the changes to take effect:
+Restart your computer for the changes to take effect:
 
-    bash
-
-        sudo reboot
+    sudo reboot
 
 Method 4: Physical Disconnection
 
@@ -94,9 +82,7 @@ Verifying the Microphone is Disabled
 
 To ensure the microphone is disabled, you can use a command to check for any audio input:
 
-bash
-
-arecord -vvv /dev/null
+    arecord -vvv /dev/null
 
 This command will show if there is any input activity from the microphone.
 
