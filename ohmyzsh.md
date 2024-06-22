@@ -264,3 +264,10 @@ source ~/.zshrc
 The verify the plugin by running type a command and press escape key twice to prefix it with sudo.
 
 Each and every plugin has a readme file on what it does. Be sure to check.
+
+
+# Download zsh-syntax-highlighting from the git repository
+
+Clone the “zsh-syntax-highlighting” repository from github.com onto your local system.
+
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
