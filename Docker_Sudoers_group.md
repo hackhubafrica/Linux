@@ -1,4 +1,4 @@
-To avoid permission issues when running Docker commands without sudo, you can add your user to the docker group. Here are the steps to do that:
+# To avoid permission issues when running Docker commands without sudo, you can add your user to the docker group. Here are the steps to do that:
 
 Create the Docker group (if it doesn't already exist):
 
