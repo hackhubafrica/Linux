@@ -3,7 +3,6 @@
 Prerequisites
 Firewall limitations
 Warning
-
 Before you install Docker, make sure you consider the following security implications and firewall incompatibilities.
 
 If you use ufw or firewalld to manage firewall settings, be aware that when you expose container ports using Docker, these ports bypass your firewall rules. For more information, refer to Docker and ufw.
@@ -15,17 +14,17 @@ Debian Bookworm 12 (stable)
 Debian Bullseye 11 (oldstable)
 Docker Engine for Debian is compatible with x86_64 (or amd64), armhf, arm64, and ppc64le (ppc64el) architectures.
 
-Uninstall old versions
+# Uninstall old versions
 Before you can install Docker Engine, you need to uninstall any conflicting packages.
 
 Distro maintainers provide unofficial distributions of Docker packages in their repositories. You must uninstall these packages before you can install the official version of Docker Engine.
 
 The unofficial packages to uninstall are:
-
 docker.io
 docker-compose
 docker-doc
 podman-docker
+
 Moreover, Docker Engine depends on containerd and runc. Docker Engine bundles these dependencies as one bundle: containerd.io. If you have installed the containerd or runc previously, uninstall them to avoid conflicts with the versions bundled with Docker Engine.
 
 Run the following command to uninstall all conflicting packages:
@@ -35,7 +34,7 @@ Run the following command to uninstall all conflicting packages:
 
 Images, containers, volumes, and networks stored in /var/lib/docker/ aren't automatically removed when you uninstall Docker. If you want to start with a clean installation, and prefer to clean up any existing data, read the uninstall Docker Engine section.
 
-Installation methods
+# Installation methods
 You can install Docker Engine in different ways, depending on your needs:
 
 Docker Engine comes bundled with Docker Desktop for Linux. This is the easiest and quickest way to get started.
@@ -46,11 +45,10 @@ Install it manually and manage upgrades manually.
 
 Use a convenience script. Only recommended for testing and development environments.
 
-Install using the apt repository
+# Install using the apt repository
 Before you install Docker Engine for the first time on a new host machine, you need to set up the Docker apt repository. Afterward, you can install and update Docker from the repository.
 
-Set up Docker's apt repository.
-
+# Set up Docker's apt repository.
 
     # Add Docker's official GPG key:
     sudo apt-get update
@@ -66,7 +64,6 @@ Set up Docker's apt repository.
       sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
     sudo apt-get update
 Note
-
 If you use a derivative distro, such as Kali Linux, you may need to substitute the part of this command that's expected to print the version codename:
 
     
@@ -97,7 +94,7 @@ The docker user group exists but contains no users, which is why you’re requir
 Upgrade Docker Engine
 To upgrade Docker Engine, follow step 2 of the installation instructions, choosing the new version you want to install.
 
-Install from a package
+# Install from a package
 If you can't use Docker's apt repository to install Docker Engine, you can download the deb file for your release and install it manually. You need to download a new file each time you want to upgrade Docker Engine.
 
 Go to https://download.docker.com/linux/debian/dists/.
@@ -132,16 +129,15 @@ This command downloads a test image and runs it in a container. When the contain
 
 You have now successfully installed and started Docker Engine.
 
-Tip
+# Tip
 
 Receiving errors when trying to run without root?
-
 The docker user group exists but contains no users, which is why you’re required to use sudo to run Docker commands. Continue to Linux postinstall to allow non-privileged users to run Docker commands and for other optional configuration steps.
 
 Upgrade Docker Engine
 To upgrade Docker Engine, download the newer package files and repeat the installation procedure, pointing to the new files.
 
-Install using the convenience script
+# Install using the convenience script
 Docker provides a convenience script at https://get.docker.com/ to install Docker into development environments non-interactively. The convenience script isn't recommended for production environments, but it's useful for creating a provisioning script tailored to your needs. Also refer to the install using the repository steps to learn about installation steps to install using the package repository. The source code for the script is open source, and you can find it in the docker-install repository on GitHub.
 
 Always examine scripts downloaded from the internet before running them locally. Before installing, make yourself familiar with potential risks and limitations of the convenience script:
@@ -156,11 +152,9 @@ Tip: preview script steps before running
 
 You can run the script with the --dry-run option to learn what steps the script will run when invoked:
 
-
      curl -fsSL https://get.docker.com -o get-docker.sh
      sudo sh ./get-docker.sh --dry-run
 This example downloads the script from https://get.docker.com/ and runs it to install the latest stable release of Docker on Linux:
-
 
      curl -fsSL https://get.docker.com -o get-docker.sh
      sudo sh get-docker.sh
@@ -172,7 +166,7 @@ Use Docker as a non-privileged user, or install in rootless mode?
 
 The installation script requires root or sudo privileges to install and use Docker. If you want to grant non-root users access to Docker, refer to the post-installation steps for Linux. You can also install Docker without root privileges, or configured to run in rootless mode. For instructions on running Docker in rootless mode, refer to run the Docker daemon as a non-root user (rootless mode).
 
-Install pre-releases
+# Install pre-releases
 Docker also provides a convenience script at https://test.docker.com/ to install pre-releases of Docker on Linux. This script is equal to the script at get.docker.com, but configures your package manager to use the test channel of the Docker package repository. The test channel includes both stable and pre-releases (beta versions, release-candidates) of Docker. Use this script to get early access to new releases, and to evaluate them in a testing environment before they're released as stable.
 
 To install the latest version of Docker on Linux from the test channel, run:
@@ -183,7 +177,7 @@ To install the latest version of Docker on Linux from the test channel, run:
 Upgrade Docker after using the convenience script
 If you installed Docker using the convenience script, you should upgrade Docker using your package manager directly. There's no advantage to re-running the convenience script. Re-running it can cause issues if it attempts to re-install repositories which already exist on the host machine.
 
-Uninstall Docker Engine
+# Uninstall Docker Engine
 Uninstall the Docker Engine, CLI, containerd, and Docker Compose packages:
 
 
@@ -202,7 +196,7 @@ The Wazuh Docker deployment requires Docker Compose 1.29 or later. Follow these 
 Download the Docker Compose binary:
 
 
-          curl -L "https://github.com/docker/compose/releases/download/v2.12.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+     curl -L "https://github.com/docker/compose/releases/download/v2.12.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 Grant execution permissions:
 
      
