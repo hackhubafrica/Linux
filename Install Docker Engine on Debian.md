@@ -194,3 +194,23 @@ Images, containers, volumes, or custom configuration files on your host aren't a
      sudo rm -rf /var/lib/docker
      sudo rm -rf /var/lib/containerd
 You have to delete any edited configuration files manually.
+
+
+# Docker compose
+The Wazuh Docker deployment requires Docker Compose 1.29 or later. Follow these steps to install it:
+
+Download the Docker Compose binary:
+
+
+          curl -L "https://github.com/docker/compose/releases/download/v2.12.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+Grant execution permissions:
+
+     
+     chmod +x /usr/local/bin/docker-compose
+Test the installation to ensure everything is fine:
+
+
+     docker-compose --version
+Output
+Docker Compose version v2.12.2
+Note If the command docker-compose fails after installation. Create a symbolic link to /usr/bin or any other directory in your path: ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
