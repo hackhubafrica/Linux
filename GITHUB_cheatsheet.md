@@ -1,17 +1,28 @@
+Change directory to folder you want to push to github
+    
     cd path/to/your/local/folder
-
+Initialize a git repository in your local folder
+    
     git init
-
+Add the url of your repository using HTTPS or SSH
+    
     git remote add origin https://github.com/hackhubafrica/LOW_LEVEL_LEARNING.git
+Add the contents of you folder     
     
     git add .
+Commit you changes    
     
     git commit -m "Initial commit"
+Push your local files to your remote repository
     
     git push -u origin master
 
 
+Since GitHub no longer supports password authentication for HTTPS, you’ll need to use one of the following authentication methods:
 
+SSH Authentication: Use an SSH key to authenticate with GitHub instead of HTTPS.
+Personal Access Token (PAT): Use a Personal Access Token in place of a password.
+Since you've already configured your SSH key, switching to SSH for your Git remote is likely the easiest option. Here’s how to set it up:
 # Step 1: Check for Existing SSH Keys
 First, check if you already have an SSH key by listing any files in the default location (~/.ssh):
 
